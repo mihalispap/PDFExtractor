@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="C:/Users/Mihalis/git/PDFExtractor/PDFExtractor/lib/stax-api-1.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Mihalis/git/PDFExtractor/PDFExtractor/lib/wstx-asl-3.2.9.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Mihalis/git/PDFExtractor/PDFExtractor/lib/xercesImpl-2.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mihalis/git/PDFExtractor/PDFExtractor/lib/pdfbox-app-2.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
