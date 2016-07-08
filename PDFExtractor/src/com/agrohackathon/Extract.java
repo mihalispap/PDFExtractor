@@ -14,6 +14,7 @@ import org.apache.pdfbox.io.RandomAccessRead;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.tika.exception.TikaException;
 
 
 public class Extract {
@@ -21,7 +22,7 @@ public class Extract {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		 if (args.length != 1) {
+		 if (args.length < 1) {
 	            System.err.println("Usage: input url of the resource as arg input");                
 	            System.exit(1);
 	        } 
@@ -39,6 +40,25 @@ public class Extract {
 		 PDFManager pm = new PDFManager();
 		 pm.setFilePath(System.getProperty("user.dir")+System.getProperty("file.separator")
 			+"temp"+System.getProperty("file.separator")+filename);
+		 
+		 pm.toTextiText();
+		 try {
+			pm.saveImagesiText(args[1]);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 
+		
+
+		 try {
+			pm.testPDFBoxExtractImages(System.getProperty("user.dir")+System.getProperty("file.separator")
+				+"temp"+System.getProperty("file.separator")+filename, args[1]);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
 		 try {
 			System.out.println("OUT"+pm.ToText());
 		} catch (IOException e) {
@@ -46,10 +66,21 @@ public class Extract {
 			e.printStackTrace();
 		}
 		 
+		 
 	       //String s = extract("test");        
 	              
 	       //System.out.println(s);
-		
+	
+		 try {
+			pm.toTextTika();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TikaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
 	}
 
 	public static void download_save(String url, String filename)
