@@ -25,6 +25,7 @@ import com.itextpdf.text.pdf.PdfObject;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStream;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
 
 
 
@@ -55,6 +56,9 @@ public class PDFManager {
             if (pdfobj == null || !pdfobj.isStream()) {
                 continue;
             }
+            
+            System.out.println(output_dir + System.nanoTime() + ".jpg");
+            
             PdfStream stream = (PdfStream) pdfobj;
             PdfObject pdfsubtype = stream.get(PdfName.SUBTYPE);
             if (pdfsubtype != null && pdfsubtype.toString().equals(PdfName.IMAGE.toString())) {
@@ -189,6 +193,8 @@ public class PDFManager {
     			String pageContent = PdfTextExtractor.getTextFromPage(pdfReader, i);   
     			//Print the page content on console. 
     			System.out.println("Content on Page " + i + ": " + pageContent);
+    			
+    			
     		}   
     		//Close the PdfReader. 
     		pdfReader.close(); 

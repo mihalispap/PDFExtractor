@@ -49,7 +49,7 @@ public class Extract {
 			e1.printStackTrace();
 		}
 		 
-		
+		System.exit(1);
 
 		 try {
 			pm.testPDFBoxExtractImages(System.getProperty("user.dir")+System.getProperty("file.separator")
